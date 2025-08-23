@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌱 Agro Med - Smart Crop Disease Detection | Hack Odisha Hackathon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Agricultural Background Overlay -->
+        <div class="agricultural-background"></div>
+
+        <!-- Navigation Controls -->
+        <div class="nav-controls">
+            <button class="nav-btn" id="prevBtn" aria-label="Previous slide">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+
+            <div class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">12</span>
+            </div>
+
+            <button class="nav-btn" id="nextBtn" aria-label="Next slide">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- Slides Container -->
+        <div class="slides-container" id="slidesContainer">
+
+            <!-- Slide 1: Title -->
+            <div class="slide active" data-slide="1">
+                <div class="slide-content title-slide">
+                    <div class="title-icon">🌱</div>
+                    <h1 class="main-title">Agro Med</h1>
+                    <h2 class="subtitle">Smart Crop Disease Detection</h2>
+                    <div class="hackathon-badge">🏆 Hack Odisha Hackathon</div>
+                    <div class="team-info">
+                        <div class="team-header">👥 Our Team</div>
+                        <p class="team-members">Rohan Kumar Sahoo • Shubham Parida • Piyush Tiwari • Pousali Dolai • Sidhiprada Pradhan</p>
+                        <p class="date">📅 September 6-7, 2025</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Problem Statement -->
+            <div class="slide" data-slide="2">
+                <div class="slide-content">
+                    <div class="slide-icon">🚨</div>
+                    <h2 class="slide-title">Problem Statement</h2>
+                    <ul class="bullet-list">
+                        <li><span class="bullet-icon">📈</span>Crop diseases cause 20-40% of global food loss annually</li>
+                        <li><span class="bullet-icon">⏰</span>Manual detection is slow, labor-intensive, and often inaccurate</li>
+                        <li><span class="bullet-icon">🌍</span>Existing solutions lack scalability and regional adaptation</li>
+                        <li class="solution"><span class="bullet-icon">🎯</span><strong>Solution:</strong> An automated, AI-powered disease diagnosis system for farmers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 3: Our Solution -->
+            <div class="slide" data-slide="3">
+                <div class="slide-content">
+                    <div class="slide-icon">💡</div>
+                    <h2 class="slide-title">Our Solution</h2>
+                    <ul class="bullet-list">
+                        <li><span class="bullet-icon">🤖</span><strong>Deep Learning Model:</strong> CNN trained on 13,324+ crop disease images with 94%+ accuracy</li>
+                        <li><span class="bullet-icon">📱</span><strong>Easy Interface:</strong> Farmer-friendly web and mobile app for instant disease detection</li>
+                        <li><span class="bullet-icon">⚡</span><strong>Real-time Analysis:</strong> Upload crop images and get instant diagnosis with confidence scores</li>
+                        <li><span class="bullet-icon">💡</span><strong>Smart Recommendations:</strong> Actionable treatment advice and prevention strategies</li>
+                        <li><span class="bullet-icon">☁️</span><strong>Cloud Integration:</strong> Secure, scalable API powered by Supabase and Cloudinary</li>
+                        <li class="solution"><span class="bullet-icon">🌍</span><strong>Scalable Platform:</strong> Multi-crop support with potential for global agricultural impact</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 4: Dataset Overview -->
+            <div class="slide" data-slide="4">
+                <div class="slide-content">
+                    <div class="slide-icon">📊</div>
+                    <h2 class="slide-title">Dataset Overview</h2>
+                    <ul class="bullet-list">
+                        <li><span class="bullet-icon">📸</span><strong>Total images:</strong> 13,324</li>
+                        <li><span class="bullet-icon">🏷️</span><strong>Total classes:</strong> 17 disease/healthy categories</li>
+                        <li><span class="bullet-icon">🌾</span><strong>Crops covered:</strong> Corn, Potato, Rice, Wheat, Sugarcane</li>
+                        <li><span class="bullet-icon">🔗</span><strong>Sources:</strong> PlantVillage, Kaggle, regional agricultural datasets</li>
+                        <li><span class="bullet-icon">✅</span>High-quality, labeled images for accurate ML training</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 5: Class Distribution -->
+            <div class="slide" data-slide="5">
+                <div class="slide-content">
+                    <div class="slide-icon">📈</div>
+                    <h2 class="slide-title">Class Distribution</h2>
+
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>🌾 Crop</th>
+                                    <th>🦠 Disease Classes</th>
+                                    <th>📸 Images</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Corn</td>
+                                    <td>Common Rust, Gray Leaf Spot, Healthy, Northern Leaf Blight</td>
+                                    <td>3,852</td>
+                                </tr>
+                                <tr>
+                                    <td>Potato</td>
+                                    <td>Early Blight, Healthy, Late Blight</td>
+                                    <td>2,152</td>
+                                </tr>
+                                <tr class="highlight-row">
+                                    <td>Rice</td>
+                                    <td>Brown Spot, Healthy, Leaf Blast, Neck Blast</td>
+                                    <td>4,078</td>
+                                </tr>
+                                <tr>
+                                    <td>Wheat</td>
+                                    <td>Brown Rust, Healthy, Yellow Rust</td>
+                                    <td>2,942</td>
+                                </tr>
+                                <tr>
+                                    <td>Sugarcane</td>
+                                    <td>Red Rot, Healthy, Bacterial Blight</td>
+                                    <td>300</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="table-note">
+                            <span class="note-icon">📝</span>
+                            <span>Rice has the largest dataset with 4,078 images across 4 classes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: AI Model Architecture -->
+            <div class="slide" data-slide="6">
+                <div class="slide-content">
+                    <div class="slide-icon">🤖</div>
+                    <h2 class="slide-title">AI Model Architecture</h2>
+                    <ol class="numbered-list">
+                        <li><span class="step-icon"></span><strong>Data Preprocessing</strong> - Image augmentation and normalization</li>
+                        <li><span class="step-icon"></span><strong>CNN Feature Extraction</strong> - Convolutional Neural Network layers</li>
+                        <li><span class="step-icon"></span><strong>Multi-class Classification</strong> - 17 disease categories with confidence scores</li>
+                        <li><span class="step-icon"></span><strong>Training & Validation</strong> - Cross-entropy loss with performance metrics</li>
+                        <li><span class="step-icon"></span><strong>API Deployment</strong> - Real-time inference for mobile/web applications</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Slide 7: System Workflow (UPDATED TO MATCH IMAGE) -->
+            <div class="slide" data-slide="7">
+                <div class="slide-content">
+                    <div class="slide-icon">⚡</div>
+                    <h2 class="slide-title">System Workflow</h2>
+
+                    <!-- Team-based Architecture Flow (matching uploaded image) -->
+                    <div class="workflow-diagram">
+                        <div class="workflow-steps">
+                            <div class="workflow-step">
+                                <div class="step-number">1</div>
+                                <div class="step-title">Frontend</div>
+                                <div class="step-team">👨‍💻 Rohan, Pousali, Sidhi</div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">2</div>
+                                <div class="step-title">Backend</div>
+                                <div class="step-team">⚙️ Piyush, Shubham</div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">3</div>
+                                <div class="step-title">ML Model</div>
+                                <div class="step-team">🤖 Shubham</div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">4</div>
+                                <div class="step-title">Database</div>
+                                <div class="step-team">🗄️ Storage</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Process Flow -->
+                    <ol class="numbered-list">
+                        <li><span class="step-icon"></span><strong>Image Upload</strong> - Farmer captures crop leaf via web/mobile app</li>
+                        <li><span class="step-icon"></span><strong>Cloud Storage</strong> - Image stored securely using Cloudinary</li>
+                        <li><span class="step-icon"></span><strong>AI Processing</strong> - ML model analyzes image for disease detection</li>
+                        <li><span class="step-icon"></span><strong>Results Delivery</strong> - Prediction with confidence score sent to farmer</li>
+                        <li><span class="step-icon"></span><strong>Recommendations</strong> - Actionable treatment advice provided</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Slide 8: Technology Stack -->
+            <div class="slide" data-slide="8">
+                <div class="slide-content">
+                    <div class="slide-icon">🛠️</div>
+                    <h2 class="slide-title">Technology Stack</h2>
+
+                    <div class="tech-stack-grid">
+                        <div class="tech-category frontend-tech">
+                            <div class="category-header">
+                                <span class="category-icon">🎨</span>
+                                <h3>Frontend</h3>
+                            </div>
+                            <ul>
+                                <li>HTML5</li>
+                                <li>Tailwind CSS</li>
+                                <li>JavaScript</li>
+                                <li>Responsive Design</li>
+                            </ul>
+                        </div>
+
+                        <div class="tech-category backend-tech">
+                            <div class="category-header">
+                                <span class="category-icon">⚙️</span>
+                                <h3>Backend</h3>
+                            </div>
+                            <ul>
+                                <li>Node.js</li>
+                                <li>Express.js</li>
+                                <li>PostgreSQL</li>
+                                <li>Cloudinary API</li>
+                            </ul>
+                        </div>
+
+                        <div class="tech-category ml-tech">
+                            <div class="category-header">
+                                <span class="category-icon">🤖</span>
+                                <h3>Machine Learning</h3>
+                            </div>
+                            <ul>
+                                <li>TensorFlow / Keras</li>
+                                <li>NumPy</li>
+                                <li>OpenCV</li>
+                                <li>FastAPI</li>
+                                <li>Uvicorn</li>
+                            </ul>
+                        </div>
+
+                        <div class="tech-category cloud-tech">
+                            <div class="category-header">
+                                <span class="category-icon">☁️</span>
+                                <h3>Cloud & Storage</h3>
+                            </div>
+                            <ul>
+                                <li>Supabase</li>
+                                <li>Cloudinary</li>
+                                <li>PostgreSQL</li>
+                                <li>RESTful APIs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 9: Team Structure & Roles -->
+            <div class="slide" data-slide="9">
+                <div class="slide-content">
+                    <div class="slide-icon">👥</div>
+                    <h2 class="slide-title">Team Structure & Roles</h2>
+
+                    <div class="teams-grid">
+                        <div class="team-card frontend-team">
+                            <div class="team-header">
+                                <span class="team-icon">🎨</span>
+                                <h3>Frontend Team</h3>
+                            </div>
+                            <div class="team-members">👨‍💻 Rohan • 👩‍💻 Pousali • 👩‍💻 Sidhiprada</div>
+                            <p class="responsibility">User interface, experience design, and farmer-friendly app development</p>
+                        </div>
+
+                        <div class="team-card backend-team">
+                            <div class="team-header">
+                                <span class="team-icon">⚙️</span>
+                                <h3>Backend Team</h3>
+                            </div>
+                            <div class="team-members">👨‍💻 Piyush • 👨‍💻 Shubham</div>
+                            <p class="responsibility">API development, database management, and system integration</p>
+                        </div>
+
+                        <div class="team-card ml-team">
+                            <div class="team-header">
+                                <span class="team-icon">🤖</span>
+                                <h3>ML/AI Team</h3>
+                            </div>
+                            <div class="team-members">👨‍💻 Shubham</div>
+                            <p class="responsibility">Model development, training, deployment, and performance optimization</p>
+                        </div>
+                    </div>
+
+                    <div class="team-note">
+                        <span class="note-icon">💡</span>
+                        <span>Our cross-functional team ensures seamless integration between frontend, backend, and ML components</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 10: Challenges & Key Learnings -->
+            <div class="slide" data-slide="10">
+                <div class="slide-content">
+                    <div class="slide-icon">⚠️</div>
+                    <h2 class="slide-title">Challenges & Key Learnings</h2>
+                    <ul class="bullet-list">
+                        <li><span class="bullet-icon">📊</span><strong>Dataset Imbalance</strong> - Sugarcane classes have only 300 images vs others with 1000+</li>
+                        <li><span class="bullet-icon">🔄</span><strong>Data Source Diversity</strong> - Affects model consistency and generalization</li>
+                        <li><span class="bullet-icon">🌍</span><strong>Regional Data Gap</strong> - Need for more region-specific and field-condition data</li>
+                        <li><span class="bullet-icon">🔗</span><strong>Integration Complexity</strong> - Complex coordination between frontend, backend, and ML components</li>
+                        <li><span class="bullet-icon">⚡</span><strong>Performance Optimization</strong> - Real-time inference requirements for mobile deployment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 11: Future Scope & Roadmap -->
+            <div class="slide" data-slide="11">
+                <div class="slide-content">
+                    <div class="slide-icon">🚀</div>
+                    <h2 class="slide-title">Future Scope & Roadmap</h2>
+                    <ul class="bullet-list">
+                        <li><span class="bullet-icon">📱</span><strong>Mobile App Development</strong> - Offline diagnosis capability for remote areas</li>
+                        <li><span class="bullet-icon">🌍</span><strong>Dataset Expansion</strong> - Regional crop varieties and local disease patterns</li>
+                        <li><span class="bullet-icon">💡</span><strong>Smart Recommendations</strong> - Treatment plans and farming best practices</li>
+                        <li><span class="bullet-icon">🔗</span><strong>Supply Chain Integration</strong> - Connect with agricultural experts and suppliers</li>
+                        <li><span class="bullet-icon">📊</span><strong>Analytics Dashboard</strong> - Track crop health trends and seasonal patterns</li>
+                        <li><span class="bullet-icon">🤖</span><strong>Advanced AI Features</strong> - Disease severity assessment and yield prediction</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 12: Thank You & Q&A -->
+            <div class="slide" data-slide="12">
+                <div class="slide-content closing-slide">
+                    <div class="closing-icon">🙏</div>
+                    <h1 class="main-title">Thank You!</h1>
+                    <p class="subtitle">Questions & Answers</p>
+
+                    <div class="closing-footer">
+                        <div class="project-summary">
+                            <span class="summary-icon">🌱</span>
+                            <span>Agro Med - Empowering Farmers with AI</span>
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-icon">📧</span>
+                            <span>Contact: team@agromed.hackathon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
